@@ -1,4 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://syny76xo58nj"]
+[gd_scene load_steps=5 format=3 uid="uid://syny76xo58nj"]
+
+[ext_resource type="Texture2D" uid="uid://de1otpw3s3v6g" path="res://Assets/RocketShip ASSETS/Moon ground.png" id="1_jkijr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yn3ru"]
+albedo_texture = ExtResource("1_jkijr")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7i4nt"]
 
@@ -12,6 +17,7 @@ metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_yn3ru")
 mesh = SubResource("PlaneMesh_7i4nt")
 skeleton = NodePath("../..")
 metadata/_edit_group_ = true
