@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2fqp8j5srrd2"]
+[gd_scene load_steps=4 format=3 uid="uid://gxsykrevrokb"]
 
-[ext_resource type="PackedScene" uid="uid://ceymgc3cn4x7d" path="res://Scenes/ship_04.tscn" id="1_hvkk2"]
+[ext_resource type="PackedScene" uid="uid://c6md0wn74ftsw" path="res://Scenes/ship_04.tscn" id="1_hvkk2"]
 [ext_resource type="Script" path="res://Scripts/Rigidbody3dscript.gd" id="1_vmkwt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hyme4"]
@@ -13,7 +13,7 @@ metadata/_edit_group_ = true
 script = ExtResource("1_vmkwt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1.783, 0, 0, 0, 2.2071, -0.0256773, 0, 0.0318979, 1.77668, -0.134784, -0.563185, -0.0603226)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.134784, -0.563185, -0.0603226)
 shape = SubResource("CapsuleShape3D_hyme4")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceymgc3cn4x7d"]
+[gd_scene load_steps=4 format=3 uid="uid://c6md0wn74ftsw"]
 
 [ext_resource type="PackedScene" uid="uid://0xs7gme2hyo2" path="res://Assets/RocketShip ASSETS/Ship04.fbx" id="1_yb4tx"]
 [ext_resource type="Texture2D" uid="uid://dcjf7jsro3kqd" path="res://Assets/RocketShip ASSETS/SpaceShipsTexture.png" id="2_84x7k"]

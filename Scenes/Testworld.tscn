@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://syny76xo58nj"]
 
 [ext_resource type="Texture2D" uid="uid://de1otpw3s3v6g" path="res://Assets/RocketShip ASSETS/Moon ground.png" id="1_jkijr"]
-[ext_resource type="PackedScene" uid="uid://c2fqp8j5srrd2" path="res://Scenes/player_canister.tscn" id="2_gocjr"]
+[ext_resource type="PackedScene" uid="uid://gxsykrevrokb" path="res://Scenes/player_canister.tscn" id="2_gocjr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yn3ru"]
 albedo_texture = ExtResource("1_jkijr")

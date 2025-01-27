@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="dumdummoonlander"
+run/main_scene="res://Scenes/Testworld.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -18,3 +19,11 @@ config/icon="res://icon.svg"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
+
+[physics]
+
+3d/default_gravity=1.62
