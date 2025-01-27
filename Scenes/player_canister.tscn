@@ -1,26 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2fqp8j5srrd2"]
 
-[ext_resource type="PackedScene" uid="uid://ceymgc3cn4x7d" path="res://Scenes/ship_04.tscn" id="1_hvkk2"]
 [ext_resource type="Script" path="res://Scripts/Rigidbody3dscript.gd" id="1_vmkwt"]
+[ext_resource type="PackedScene" uid="uid://i8js2fx5vutk" path="res://true_ship.tscn" id="2_vkp3h"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hyme4"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2sfon"]
+height = 4.0
+radius = 0.8
 
-[node name="player canister" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.169715, 3.99807, 0)
-metadata/_edit_group_ = true
-
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="RigidBody3D" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0883921)
 script = ExtResource("1_vmkwt")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1.783, 0, 0, 0, 2.2071, -0.0256773, 0, 0.0318979, 1.77668, -0.134784, -0.563185, -0.0603226)
-shape = SubResource("CapsuleShape3D_hyme4")
-metadata/_edit_lock_ = true
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.87785)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.110559, 0.346891, 0.116812)
+shape = SubResource("CylinderShape3D_2sfon")
 metadata/_edit_group_ = true
 
-[node name="Ship05" parent="RigidBody3D/CollisionShape3D" instance=ExtResource("1_hvkk2")]
-transform = Transform3D(0.560853, 0, 0, 0, 0.00654674, -0.452988, 0, 0.562729, 0.00813276, 1.95936, 0.000203609, 0.0174949)
-metadata/_edit_lock_ = true
-
-[node name="Camera3D" type="Camera3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.0731)
+[node name="true ship" parent="CollisionShape3D2" instance=ExtResource("2_vkp3h")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 3.52415, -0.268133, -0.0104126)
