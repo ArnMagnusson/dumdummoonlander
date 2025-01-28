@@ -9,6 +9,7 @@ radius = 0.8
 
 [node name="RigidBody3D" type="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0883921)
+mass = 1000.0
 script = ExtResource("1_vmkwt")
 
 [node name="Camera3D2" type="Camera3D" parent="."]
