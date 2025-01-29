@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://jnfbbib743ga"]
+
+[ext_resource type="Script" path="res://area_3d.gd" id="1_jxcwq"]
+[ext_resource type="PackedScene" uid="uid://c2x6ghkvxyciu" path="res://Assets/landing spot/landingspot.glb" id="2_56wpw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ftis7"]
+height = 0.05
+radius = 0.7
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_jxcwq")
+
+[node name="landingspot" parent="Area3D" instance=ExtResource("2_56wpw")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.106732, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_ftis7")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
