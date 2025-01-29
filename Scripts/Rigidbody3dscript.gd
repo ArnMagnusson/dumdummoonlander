@@ -1,4 +1,6 @@
 extends RigidBody3D
+#Next step add camera controls
+
 #Force=Speed.
 #torque=rotation energi
 #Thrusters speed.
@@ -35,7 +37,6 @@ func _process(delta):
 		s_is_pressed = true
 	#Pitch thrust backwards
 	if Input.is_action_pressed("PitchW"):
-		apply_torque(Vector3(-3, 0, 0))
 		w_is_pressed = true
 	#Yaw left
 	if Input.is_action_pressed("YawA"):
@@ -46,8 +47,10 @@ func _process(delta):
 		d_is_pressed = true
 		
 func _integrate_forces(state):
+	var local_up = transform.basis.y #local y axis
+	
 	if space_is_pressed:
-		apply_central_force(Vector3(0, thrust, 0))
+		apply_central_force(Vector3(local_up * thrust))
 	if w_is_pressed:
 		apply_torque(Vector3(negativetorque, 0, 0))
 	if a_is_pressed:
