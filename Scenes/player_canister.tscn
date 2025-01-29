@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2fqp8j5srrd2"]
+[gd_scene load_steps=5 format=3 uid="uid://c2fqp8j5srrd2"]
 
 [ext_resource type="Script" path="res://Scripts/Rigidbody3dscript.gd" id="1_vmkwt"]
 [ext_resource type="PackedScene" uid="uid://i8js2fx5vutk" path="res://true_ship.tscn" id="2_vkp3h"]
+[ext_resource type="Script" path="res://Scenes/ground_detection_ray.gd" id="3_byibq"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_2sfon"]
 height = 4.0
@@ -12,9 +13,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0883921)
 mass = 1000.0
 script = ExtResource("1_vmkwt")
 
-[node name="Camera3D2" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.87785)
-
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.110559, 0.346891, 0.116812)
 shape = SubResource("CylinderShape3D_2sfon")
@@ -22,3 +20,15 @@ metadata/_edit_group_ = true
 
 [node name="true ship" parent="CollisionShape3D2" instance=ExtResource("2_vkp3h")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 3.52415, -0.268133, -0.0104126)
+
+[node name="ground_detection_ray" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4072, 0.142113)
+target_position = Vector3(0, -100, 0)
+script = ExtResource("3_byibq")
+
+[node name="twistpivot" type="Node3D" parent="."]
+
+[node name="pitchpivot" type="Node3D" parent="twistpivot"]
+
+[node name="Camera3D" type="Camera3D" parent="twistpivot/pitchpivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.87785)
