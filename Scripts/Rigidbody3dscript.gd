@@ -1,7 +1,14 @@
 extends RigidBody3D
 #Next step add camera controls
+#camera movement
+@onready var twist_pivot := $twistpivot
+@onready var pitch_pivot := $twistpivot/pitchpivot
+@export var twist_input := 0.0
+@export var pitch_input := 0.0
+#sensitivity on mouse
+@export var mouse_sensitivity := 0.001
 
-#Force=Speed.
+#Thrust=Speed.
 #torque=rotation energi
 #Thrusters speed.
 @export var thrust = 10
@@ -16,8 +23,11 @@ var a_is_pressed = false
 var s_is_pressed = false
 var d_is_pressed = false
 var space_is_pressed = false
+
+
 func _ready():
-	pass
+#disable mouse
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 #input and force handling
 func _process(delta):
@@ -46,6 +56,10 @@ func _process(delta):
 	if Input.is_action_pressed("YawD"):
 		d_is_pressed = true
 		
+	#escape with mouse
+	if Input.is_action_just_pressed("ui_cancel"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 func _integrate_forces(state):
 	var local_up = transform.basis.y #local y axis
 	
@@ -59,3 +73,23 @@ func _integrate_forces(state):
 			apply_torque(Vector3(positivetorque, 0, 0))
 	if d_is_pressed:
 		apply_torque(Vector3(0, 0, negativetorque))
+		
+	if Input.is_action_just_pressed("ui_cancel"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		
+	twist_pivot.rotate_y(twist_input)
+	pitch_pivot.rotate_x(pitch_input)
+	pitch_pivot.rotation.x = clamp(
+		pitch_pivot.rotation.x,
+		deg_to_rad(-30),
+		deg_to_rad(30)
+		)
+		
+	twist_input = 0.0
+	pitch_input = 0.0
+	
+#mouse inputs
+func _unhandled_input(event):
+	if event is InputEventMouseMotion:
+		twist_input = - event.relative.x * mouse_sensitivity
+		pitch_input = - event.relative.y * mouse_sensitivity
