@@ -11,7 +11,7 @@ extends RigidBody3D
 #Thrust=Speed.
 #torque=rotation energi
 #Thrusters speed.
-@export var thrust = 10
+@export var thrust = 90
 #Postitivetorque W and A keys
 @export var positivetorque = 1
 @export var negativetorque = -1
@@ -72,6 +72,7 @@ func _integrate_forces(state):
 	
 	if space_is_pressed:
 		apply_central_force(Vector3(local_up * thrust))
+		print("Yes")
 	if w_is_pressed:
 		apply_torque(Vector3(negativetorque, 0, 0))
 	if a_is_pressed:

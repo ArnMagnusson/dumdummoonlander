@@ -92,7 +92,7 @@ offset_bottom = 307.0
 theme_override_fonts/font = ExtResource("2_l7o64")
 text = "Continue"
 
-[connection signal="pressed" from="Control/pausemenu/backtostartbutton" to="Control/pausemenu" method="_on_backtostartbutton_pressed"]
-[connection signal="pressed" from="Control/pausemenu/restartbutton" to="Control/pausemenu" method="_on_restartbutton_pressed"]
-[connection signal="pressed" from="Control/pausemenu/quitbutton" to="Control/pausemenu" method="_on_quitbutton_pressed"]
+[connection signal="pressed" from="Control/pausemenu/backtostartbutton" to="Control" method="_on_backtostartbutton_pressed"]
+[connection signal="pressed" from="Control/pausemenu/restartbutton" to="Control" method="_on_restartbutton_pressed"]
+[connection signal="pressed" from="Control/pausemenu/quitbutton" to="Control" method="_on_quitbutton_pressed"]
 [connection signal="pressed" from="Control/pausemenu/continuebutton" to="Control" method="_on_continuebutton_pressed"]
