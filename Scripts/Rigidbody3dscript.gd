@@ -17,12 +17,19 @@ extends RigidBody3D
 @export var negativetorque = -1
 # Called when the node enters the scene tree for the first time.
 
-#Key input detected
+#Key input detection
 var w_is_pressed = false
 var a_is_pressed = false
 var s_is_pressed = false
 var d_is_pressed = false
 var space_is_pressed = false
+var esc_is_pressed = false
+
+#fuel and speed
+@export var fuel = 100
+@export var speedmode1 = 900
+@export var speedmode2 = 1200
+@export var speedmode3 = 1500
 
 
 func _ready():
@@ -81,8 +88,8 @@ func _integrate_forces(state):
 	pitch_pivot.rotate_x(pitch_input)
 	pitch_pivot.rotation.x = clamp(
 		pitch_pivot.rotation.x,
-		deg_to_rad(-30),
-		deg_to_rad(30)
+		deg_to_rad(-90),
+		deg_to_rad(90)
 		)
 		
 	twist_input = 0.0
