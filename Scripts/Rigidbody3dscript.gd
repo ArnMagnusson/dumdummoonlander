@@ -35,6 +35,7 @@ var esc_is_pressed = false
 func _ready():
 #disable mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$"../pausescreen".connect("Continue",_unhandled_input)
 	
 #input and force handling
 func _process(delta):
@@ -100,4 +101,5 @@ func _integrate_forces(state):
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		twist_input = - event.relative.x * mouse_sensitivity
+		print("hej")
 		pitch_input = - event.relative.y * mouse_sensitivity
