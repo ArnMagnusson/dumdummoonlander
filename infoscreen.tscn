@@ -1,0 +1,220 @@
+[gd_scene load_steps=4 format=3 uid="uid://bofgwf1rpmvgv"]
+
+[ext_resource type="Texture2D" uid="uid://dc3ern5a2vgbv" path="res://Assets/sky texture/starry sky.jpg" id="1_dravx"]
+[ext_resource type="Script" path="res://infodisplay.gd" id="2_4dxml"]
+[ext_resource type="FontFile" uid="uid://nlynj410s25x" path="res://Assets/fonts/m6x11.ttf" id="3_16l52"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="stars" type="CanvasLayer" parent="."]
+
+[node name="the stars" type="TextureRect" parent="stars"]
+offset_right = 3000.0
+offset_bottom = 2000.0
+texture = ExtResource("1_dravx")
+
+[node name="infodisplay" type="CanvasLayer" parent="."]
+script = ExtResource("2_4dxml")
+
+[node name="infobox" type="ColorRect" parent="infodisplay"]
+modulate = Color(0.834614, 0.834614, 0.834614, 1)
+self_modulate = Color(0.821789, 0.821789, 0.821789, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.505344, 0.505344, 0.505344, 1)
+
+[node name="infoborder" type="ReferenceRect" parent="infodisplay"]
+custom_minimum_size = Vector2(500, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.176531, 0.170843, 0.176404, 1)
+border_width = 10.0
+editor_only = false
+
+[node name="how to play" type="Label" parent="infodisplay"]
+offset_left = 488.0
+offset_top = 155.0
+offset_right = 666.0
+offset_bottom = 210.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_16l52")
+theme_override_font_sizes/font_size = 40
+text = "How to play"
+
+[node name="to move" type="Label" parent="infodisplay"]
+offset_left = 461.0
+offset_top = 243.0
+offset_right = 527.0
+offset_bottom = 266.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_16l52")
+theme_override_font_sizes/font_size = 20
+text = "to Move"
+
+[node name="to thrust" type="Label" parent="infodisplay"]
+offset_left = 657.0
+offset_top = 246.0
+offset_right = 736.0
+offset_bottom = 264.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_16l52")
+theme_override_font_sizes/font_size = 20
+text = "to Thrust"
+
+[node name="backtostartbutton" type="Button" parent="infodisplay"]
+offset_left = 419.0
+offset_top = 444.0
+offset_right = 719.0
+offset_bottom = 494.0
+theme_override_fonts/font = ExtResource("3_16l52")
+text = "Back to Start"
+
+[node name="w button" type="CanvasLayer" parent="."]
+
+[node name="w-box" type="ColorRect" parent="w button"]
+offset_left = 398.0
+offset_top = 223.0
+offset_right = 424.0
+offset_bottom = 251.0
+color = Color(0.288518, 0.288518, 0.288518, 1)
+
+[node name="w-border" type="ReferenceRect" parent="w button"]
+offset_left = 398.0
+offset_top = 223.0
+offset_right = 424.0
+offset_bottom = 251.0
+border_color = Color(0.00280226, 9.16552e-10, 4.23024e-10, 1)
+
+[node name="w" type="Label" parent="w button"]
+offset_left = 404.0
+offset_top = 225.0
+offset_right = 418.0
+offset_bottom = 248.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_16l52")
+theme_override_font_sizes/font_size = 25
+text = "w"
+
+[node name="s button" type="CanvasLayer" parent="."]
+
+[node name="s-box" type="ColorRect" parent="s button"]
+offset_left = 398.0
+offset_top = 251.0
+offset_right = 424.0
+offset_bottom = 279.0
+color = Color(0.288518, 0.288518, 0.288518, 1)
+
+[node name="s-border" type="ReferenceRect" parent="s button"]
+offset_left = 398.0
+offset_top = 251.0
+offset_right = 424.0
+offset_bottom = 279.0
+border_color = Color(0.00280226, 9.16552e-10, 4.23024e-10, 1)
+
+[node name="s" type="Label" parent="s button"]
+offset_left = 405.0
+offset_top = 254.0
+offset_right = 419.0
+offset_bottom = 277.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_16l52")
+theme_override_font_sizes/font_size = 25
+text = "s"
+
+[node name="a button" type="CanvasLayer" parent="."]
+
+[node name="a-box" type="ColorRect" parent="a button"]
+offset_left = 372.0
+offset_top = 251.0
+offset_right = 398.0
+offset_bottom = 279.0
+color = Color(0.288518, 0.288518, 0.288518, 1)
+
+[node name="a-border" type="ReferenceRect" parent="a button"]
+offset_left = 372.0
+offset_top = 251.0
+offset_right = 398.0
+offset_bottom = 279.0
+border_color = Color(0.00280226, 9.16552e-10, 4.23024e-10, 1)
+
+[node name="a" type="Label" parent="a button"]
+offset_left = 380.0
+offset_top = 254.0
+offset_right = 394.0
+offset_bottom = 277.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_16l52")
+theme_override_font_sizes/font_size = 25
+text = "a"
+
+[node name="d button" type="CanvasLayer" parent="."]
+
+[node name="d-box" type="ColorRect" parent="d button"]
+offset_left = 424.0
+offset_top = 251.0
+offset_right = 450.0
+offset_bottom = 279.0
+color = Color(0.288518, 0.288518, 0.288518, 1)
+
+[node name="d-border" type="ReferenceRect" parent="d button"]
+offset_left = 424.0
+offset_top = 251.0
+offset_right = 450.0
+offset_bottom = 279.0
+border_color = Color(0.00280226, 9.16552e-10, 4.23024e-10, 1)
+
+[node name="d" type="Label" parent="d button"]
+offset_left = 431.0
+offset_top = 255.0
+offset_right = 445.0
+offset_bottom = 278.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_16l52")
+theme_override_font_sizes/font_size = 25
+text = "d"
+
+[node name="space button" type="CanvasLayer" parent="."]
+
+[node name="space-box" type="ColorRect" parent="space button"]
+offset_left = 577.0
+offset_top = 240.0
+offset_right = 648.0
+offset_bottom = 268.0
+color = Color(0.288518, 0.288518, 0.288518, 1)
+
+[node name="space-border" type="ReferenceRect" parent="space button"]
+offset_left = 577.0
+offset_top = 240.0
+offset_right = 649.0
+offset_bottom = 268.0
+border_color = Color(0.00280226, 9.16552e-10, 4.23024e-10, 1)
+
+[node name="space" type="Label" parent="space button"]
+offset_left = 586.0
+offset_top = 242.0
+offset_right = 641.0
+offset_bottom = 265.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_16l52")
+theme_override_font_sizes/font_size = 25
+text = "space"
+
+[connection signal="pressed" from="infodisplay/backtostartbutton" to="infodisplay" method="_on_backtostartbutton_pressed"]

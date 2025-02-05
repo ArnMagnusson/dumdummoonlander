@@ -1,0 +1,125 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlsjvhushlt4d"]
+
+[ext_resource type="Texture2D" uid="uid://dc3ern5a2vgbv" path="res://Assets/sky texture/starry sky.jpg" id="1_ldg4e"]
+[ext_resource type="Script" path="res://endscreen.gd" id="1_upn2s"]
+[ext_resource type="FontFile" uid="uid://nlynj410s25x" path="res://Assets/fonts/m6x11.ttf" id="2_73poc"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_upn2s")
+
+[node name="stars" type="CanvasLayer" parent="."]
+
+[node name="the stars" type="TextureRect" parent="stars"]
+offset_right = 3000.0
+offset_bottom = 2000.0
+texture = ExtResource("1_ldg4e")
+
+[node name="WinDisplay" type="CanvasLayer" parent="."]
+
+[node name="winbox" type="ColorRect" parent="WinDisplay"]
+modulate = Color(0.834614, 0.834614, 0.834614, 1)
+self_modulate = Color(0.821789, 0.821789, 0.821789, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.505344, 0.505344, 0.505344, 1)
+
+[node name="winborder" type="ReferenceRect" parent="WinDisplay"]
+custom_minimum_size = Vector2(500, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.176531, 0.170843, 0.176404, 1)
+border_width = 10.0
+editor_only = false
+
+[node name="congratulations" type="Label" parent="WinDisplay"]
+offset_left = 457.0
+offset_top = 181.0
+offset_right = 767.0
+offset_bottom = 236.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_73poc")
+theme_override_font_sizes/font_size = 40
+text = "Congratulations"
+
+[node name="you landed" type="Label" parent="WinDisplay"]
+offset_left = 440.0
+offset_top = 221.0
+offset_right = 998.0
+offset_bottom = 276.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_73poc")
+theme_override_font_sizes/font_size = 25
+text = "You landed the space shuttle"
+
+[node name="backtostartbuttonwin" type="Button" parent="WinDisplay"]
+offset_left = 431.0
+offset_top = 435.0
+offset_right = 731.0
+offset_bottom = 485.0
+theme_override_fonts/font = ExtResource("2_73poc")
+text = "Back to Start"
+
+[node name="LoseDisplay" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="losebox" type="ColorRect" parent="LoseDisplay"]
+modulate = Color(0.834614, 0.834614, 0.834614, 1)
+self_modulate = Color(0.821789, 0.821789, 0.821789, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.505344, 0.505344, 0.505344, 1)
+
+[node name="loseborder" type="ReferenceRect" parent="LoseDisplay"]
+custom_minimum_size = Vector2(500, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.176531, 0.170843, 0.176404, 1)
+border_width = 10.0
+editor_only = false
+
+[node name="backtostartbuttonlose" type="Button" parent="LoseDisplay"]
+offset_left = 431.0
+offset_top = 435.0
+offset_right = 731.0
+offset_bottom = 485.0
+theme_override_fonts/font = ExtResource("2_73poc")
+text = "Back to Start"
+
+[connection signal="pressed" from="WinDisplay/backtostartbuttonwin" to="." method="_on_backtostartbuttonwin_pressed"]
+[connection signal="pressed" from="LoseDisplay/backtostartbuttonlose" to="." method="_on_backtostartbuttonlose_pressed"]

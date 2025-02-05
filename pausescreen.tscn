@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://dolv5yyoame1q"]
+
+[ext_resource type="Script" path="res://pausemenu.gd" id="1_c81wd"]
+[ext_resource type="FontFile" uid="uid://nlynj410s25x" path="res://Assets/fonts/m6x11.ttf" id="2_l7o64"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 322.0
+offset_top = 119.0
+offset_right = 831.0
+offset_bottom = 526.0
+script = ExtResource("1_c81wd")
+
+[node name="pausemenu" type="CanvasLayer" parent="Control"]
+visible = false
+
+[node name="pausebox" type="ColorRect" parent="Control/pausemenu"]
+modulate = Color(0.834614, 0.834614, 0.834614, 1)
+self_modulate = Color(0.821789, 0.821789, 0.821789, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.505344, 0.505344, 0.505344, 1)
+
+[node name="pauseborder" type="ReferenceRect" parent="Control/pausemenu"]
+custom_minimum_size = Vector2(500, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.176531, 0.170843, 0.176404, 1)
+border_width = 10.0
+editor_only = false
+
+[node name="pause" type="Label" parent="Control/pausemenu"]
+offset_left = 519.0
+offset_top = 189.0
+offset_right = 894.0
+offset_bottom = 244.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_l7o64")
+theme_override_font_sizes/font_size = 40
+text = "Paused"
+
+[node name="backtostartbutton" type="Button" parent="Control/pausemenu"]
+offset_left = 431.0
+offset_top = 375.0
+offset_right = 731.0
+offset_bottom = 425.0
+theme_override_fonts/font = ExtResource("2_l7o64")
+text = "Back to Start"
+
+[node name="restartbutton" type="Button" parent="Control/pausemenu"]
+offset_left = 431.0
+offset_top = 316.0
+offset_right = 731.0
+offset_bottom = 366.0
+theme_override_fonts/font = ExtResource("2_l7o64")
+text = "Restart"
+
+[node name="quitbutton" type="Button" parent="Control/pausemenu"]
+offset_left = 432.0
+offset_top = 435.0
+offset_right = 732.0
+offset_bottom = 485.0
+theme_override_fonts/font = ExtResource("2_l7o64")
+text = "Quit Game"
+
+[node name="continuebutton" type="Button" parent="Control/pausemenu"]
+offset_left = 430.0
+offset_top = 257.0
+offset_right = 730.0
+offset_bottom = 307.0
+theme_override_fonts/font = ExtResource("2_l7o64")
+text = "Continue"
+
+[connection signal="pressed" from="Control/pausemenu/backtostartbutton" to="Control/pausemenu" method="_on_backtostartbutton_pressed"]
+[connection signal="pressed" from="Control/pausemenu/restartbutton" to="Control/pausemenu" method="_on_restartbutton_pressed"]
+[connection signal="pressed" from="Control/pausemenu/quitbutton" to="Control/pausemenu" method="_on_quitbutton_pressed"]
+[connection signal="pressed" from="Control/pausemenu/continuebutton" to="Control" method="_on_continuebutton_pressed"]
