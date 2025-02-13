@@ -3,7 +3,6 @@ extends Control
 
 @onready var rigid_body_3d: RigidBody3D = $RigidBody3D
 
-signal Continue
 
 var pause
 
@@ -18,7 +17,6 @@ func _on_continuebutton_pressed() -> void:
 	pausemenu.hide()
 	pause = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	emit_signal("Continue")
 	get_tree().paused = false
 
 func _on_restartbutton_pressed() -> void:

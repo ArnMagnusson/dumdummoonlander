@@ -35,10 +35,11 @@ var esc_is_pressed = false
 func _ready():
 #disable mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	$"../pausescreen".connect("Continue",_unhandled_input)
 	
 #input and force handling
 func _process(delta):
+	update_camera(delta) #calls camera function
+	
 	#reset state
 	space_is_pressed = false
 	w_is_pressed = false
@@ -47,7 +48,7 @@ func _process(delta):
 	d_is_pressed = false
 	#Up thrust
 	if Input.is_action_pressed("ui_accept"):
-		print("SPACE")
+		#print("SPACE")
 		space_is_pressed = true
 	
 	#Pitch thrust forward
@@ -68,12 +69,13 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
+	
 func _integrate_forces(state):
 	var local_up = transform.basis.y #local y axis
 	
 	if space_is_pressed:
 		apply_central_force(Vector3(local_up * thrust))
-		print("Yes")
+		#print("Yes")
 	if w_is_pressed:
 		apply_torque(Vector3(negativetorque, 0, 0))
 	if a_is_pressed:
@@ -86,8 +88,23 @@ func _integrate_forces(state):
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
+#mouse inputs
+func _input(event):
+	if event is InputEventMouseMotion:
+		twist_input = - event.relative.x * mouse_sensitivity
+		#print("hej")
+		pitch_input = - event.relative.y * mouse_sensitivity
+		
+func update_camera(delta):
+	# Smooth out rotation inputs over time
+	twist_input = lerp(twist_input, 0.0, 5 * delta)
+	pitch_input = lerp(pitch_input, 0.0, 5 * delta)
+
+	# Apply rotation
 	twist_pivot.rotate_y(twist_input)
 	pitch_pivot.rotate_x(pitch_input)
+
+	# Clamp pitch rotation to prevent flipping
 	pitch_pivot.rotation.x = clamp(
 		pitch_pivot.rotation.x,
 		deg_to_rad(-90),
@@ -96,10 +113,3 @@ func _integrate_forces(state):
 		
 	twist_input = 0.0
 	pitch_input = 0.0
-	
-#mouse inputs
-func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		twist_input = - event.relative.x * mouse_sensitivity
-		print("hej")
-		pitch_input = - event.relative.y * mouse_sensitivity
