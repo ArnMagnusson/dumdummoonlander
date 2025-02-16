@@ -27,10 +27,6 @@ var esc_is_pressed = false
 
 #fuel and speed
 @export var fuel = 100
-@export var speedmode1 = 900
-@export var speedmode2 = 1200
-@export var speedmode3 = 1500
-
 
 func _ready():
 #disable mouse
@@ -68,7 +64,18 @@ func _process(delta):
 	#escape with mouse
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
+		
+	if Input.is_action_just_pressed("speed1"):
+		thrust=90
+		
+	if Input.is_action_just_pressed("speed2"):
+		thrust=200
+		
+	if Input.is_action_just_pressed("speed3"):
+		thrust=300
+		
+	if Input.is_action_just_pressed("debugkey"): #H
+		print(thrust)
 	
 func _integrate_forces(state):
 	var local_up = transform.basis.y #local y axis
@@ -84,10 +91,9 @@ func _integrate_forces(state):
 			apply_torque(Vector3(positivetorque, 0, 0))
 	if d_is_pressed:
 		apply_torque(Vector3(0, 0, negativetorque))
-		
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
+
 #mouse inputs
 func _input(event):
 	if event is InputEventMouseMotion:
