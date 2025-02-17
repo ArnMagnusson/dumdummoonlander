@@ -24,17 +24,21 @@ var s_is_pressed = false
 var d_is_pressed = false
 var space_is_pressed = false
 var esc_is_pressed = false
+var e_is_pressed = false
+var q_is_pressed = false
+
 
 #fuel and speed
 @export var fuel = 100
+@export var fuel_consuption = 10
 
 func _ready():
 #disable mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
 #input and force handling
 func _process(delta):
 	update_camera(delta) #calls camera function
+	FUEL_TANK(delta) #calls fuel
 	
 	#reset state
 	space_is_pressed = false
@@ -46,7 +50,6 @@ func _process(delta):
 	if Input.is_action_pressed("ui_accept"):
 		#print("SPACE")
 		space_is_pressed = true
-	
 	#Pitch thrust forward
 	if Input.is_action_pressed("PitchS"):
 		s_is_pressed = true
@@ -61,21 +64,28 @@ func _process(delta):
 	if Input.is_action_pressed("YawD"):
 		d_is_pressed = true
 		
+	if Input.is_action_pressed("RotationLEFT"):
+		q_is_pressed = true
+	
+	if Input.is_action_pressed("rotationRight"):
+		e_is_pressed = true
+	
 	#escape with mouse
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
-	if Input.is_action_just_pressed("speed1"):
-		thrust=90
-		
-	if Input.is_action_just_pressed("speed2"):
-		thrust=200
-		
-	if Input.is_action_just_pressed("speed3"):
-		thrust=300
-		
-	if Input.is_action_just_pressed("debugkey"): #H
-		print(thrust)
+	if fuel > 0:
+		if Input.is_action_just_pressed("speed1"):
+			thrust=90
+			
+		if Input.is_action_just_pressed("speed2"):
+			thrust=200
+			
+		if Input.is_action_just_pressed("speed3"):
+			thrust=300
+			
+		if Input.is_action_just_pressed("debugkey"): #H
+			print(thrust)
+			print(fuel)
 	
 func _integrate_forces(state):
 	var local_up = transform.basis.y #local y axis
@@ -91,9 +101,19 @@ func _integrate_forces(state):
 			apply_torque(Vector3(positivetorque, 0, 0))
 	if d_is_pressed:
 		apply_torque(Vector3(0, 0, negativetorque))
+	if e_is_pressed:
+		apply_torque(Vector3(0, positivetorque, 0 ))
+	if q_is_pressed:
+		apply_torque(Vector3(0, negativetorque, 0))
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
+func FUEL_TANK(delta):
+	if Input.is_action_pressed("ui_accept") and fuel > 0:
+		fuel -= fuel_consuption * delta
+	if fuel <=0:
+		thrust = 0
+		
 #mouse inputs
 func _input(event):
 	if event is InputEventMouseMotion:
