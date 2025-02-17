@@ -11,7 +11,7 @@ extends RigidBody3D
 #Thrust=Speed.
 #torque=rotation energi
 #Thrusters speed.
-@export var thrust = 10
+@export var thrust = 90
 #Postitivetorque W and A keys
 @export var positivetorque = 1
 @export var negativetorque = -1
@@ -27,10 +27,6 @@ var esc_is_pressed = false
 
 #fuel and speed
 @export var fuel = 100
-@export var speedmode1 = 900
-@export var speedmode2 = 1200
-@export var speedmode3 = 1500
-
 
 func _ready():
 #disable mouse
@@ -38,6 +34,8 @@ func _ready():
 	
 #input and force handling
 func _process(delta):
+	update_camera(delta) #calls camera function
+	
 	#reset state
 	space_is_pressed = false
 	w_is_pressed = false
@@ -46,7 +44,7 @@ func _process(delta):
 	d_is_pressed = false
 	#Up thrust
 	if Input.is_action_pressed("ui_accept"):
-		print("SPACE")
+		#print("SPACE")
 		space_is_pressed = true
 	
 	#Pitch thrust forward
@@ -66,12 +64,25 @@ func _process(delta):
 	#escape with mouse
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
+		
+	if Input.is_action_just_pressed("speed1"):
+		thrust=90
+		
+	if Input.is_action_just_pressed("speed2"):
+		thrust=200
+		
+	if Input.is_action_just_pressed("speed3"):
+		thrust=300
+		
+	if Input.is_action_just_pressed("debugkey"): #H
+		print(thrust)
+	
 func _integrate_forces(state):
 	var local_up = transform.basis.y #local y axis
 	
 	if space_is_pressed:
 		apply_central_force(Vector3(local_up * thrust))
+		#print("Yes")
 	if w_is_pressed:
 		apply_torque(Vector3(negativetorque, 0, 0))
 	if a_is_pressed:
@@ -80,12 +91,26 @@ func _integrate_forces(state):
 			apply_torque(Vector3(positivetorque, 0, 0))
 	if d_is_pressed:
 		apply_torque(Vector3(0, 0, negativetorque))
-		
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+#mouse inputs
+func _input(event):
+	if event is InputEventMouseMotion:
+		twist_input = - event.relative.x * mouse_sensitivity
+		#print("hej")
+		pitch_input = - event.relative.y * mouse_sensitivity
 		
+func update_camera(delta):
+	# Smooth out rotation inputs over time
+	twist_input = lerp(twist_input, 0.0, 5 * delta)
+	pitch_input = lerp(pitch_input, 0.0, 5 * delta)
+
+	# Apply rotation
 	twist_pivot.rotate_y(twist_input)
 	pitch_pivot.rotate_x(pitch_input)
+
+	# Clamp pitch rotation to prevent flipping
 	pitch_pivot.rotation.x = clamp(
 		pitch_pivot.rotation.x,
 		deg_to_rad(-90),
@@ -94,9 +119,3 @@ func _integrate_forces(state):
 		
 	twist_input = 0.0
 	pitch_input = 0.0
-	
-#mouse inputs
-func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		twist_input = - event.relative.x * mouse_sensitivity
-		pitch_input = - event.relative.y * mouse_sensitivity

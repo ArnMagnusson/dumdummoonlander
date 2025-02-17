@@ -7,10 +7,11 @@ func _process(delta):
 	#get distance to ground from ground detection func.
 	var distance = _ground_detection()
 	if distance != null: #makes sure their is ground
-		print("Distance to ground: ", distance) #prints how far to ground their is
+		#print("Distance to ground: ", distance) #prints how far to ground their is
+		pass
 	else:
-		print("No ground detected!") #if no ground is detected.
-		
+		#print("No ground detected!") #if no ground is detected.
+		pass
 	#rotation lock
 	parent_rotation = get_parent().rotation
 	set_rotation(- parent_rotation)
