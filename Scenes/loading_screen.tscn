@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://4kqrtm1px0hq"]
+
+[ext_resource type="Script" path="res://loading_screen.gd" id="1_gn0vi"]
+
+[node name="loading_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gn0vi")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 103.0
+offset_right = 778.0
+offset_bottom = 166.0
+text = "Now Flying to the MOON please await your arrival"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 151.0
+offset_right = 695.0
+offset_bottom = 180.0
