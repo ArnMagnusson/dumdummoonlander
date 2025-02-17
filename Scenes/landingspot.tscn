@@ -1,24 +1,25 @@
 [gd_scene load_steps=4 format=3 uid="uid://jnfbbib743ga"]
 
-[ext_resource type="Script" path="res://area_3d.gd" id="1_314sh"]
+[ext_resource type="Script" path="res://Scenes/collision_shape_3d.gd" id="1_u7sls"]
 [ext_resource type="PackedScene" uid="uid://c2x6ghkvxyciu" path="res://Assets/landing spot/landingspot.glb" id="2_a3xfv"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_ftis7"]
-height = 0.075
-radius = 0.7
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_d3stv"]
+height = 0.005
+radius = 0.005
 
 [node name="Node3D" type="Node3D"]
 
 [node name="landing" type="Area3D" parent="."]
 transform = Transform3D(250, 0, 0, 0, 250, 0, 0, 0, 250, -0.00041759, -7.85189, 0.00251269)
 collision_layer = 2
-script = ExtResource("1_314sh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="landing"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0269609, 0)
-shape = SubResource("CylinderShape3D_ftis7")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0308487, 0)
+shape = SubResource("CylinderShape3D_d3stv")
+script = ExtResource("1_u7sls")
 
 [node name="landingspot" parent="." instance=ExtResource("2_a3xfv")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.213463, -0.00041759, 0.00130939, 0.00251269)
 
 [connection signal="area_entered" from="landing" to="landing" method="_on_area_entered"]
+[connection signal="child_entered_tree" from="landing/CollisionShape3D" to="landing/CollisionShape3D" method="_on_child_entered_tree"]

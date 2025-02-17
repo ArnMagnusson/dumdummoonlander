@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcjf7jsro3kqd"
 path.s3tc="res://.godot/imported/SpaceShipsTexture.png-079dce33237a86a1afd86aed5813b130.s3tc.ctex"
+path.etc2="res://.godot/imported/SpaceShipsTexture.png-079dce33237a86a1afd86aed5813b130.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/RocketShip ASSETS/SpaceShipsTexture.png"
-dest_files=["res://.godot/imported/SpaceShipsTexture.png-079dce33237a86a1afd86aed5813b130.s3tc.ctex"]
+dest_files=["res://.godot/imported/SpaceShipsTexture.png-079dce33237a86a1afd86aed5813b130.s3tc.ctex", "res://.godot/imported/SpaceShipsTexture.png-079dce33237a86a1afd86aed5813b130.etc2.ctex"]
 
 [params]
 

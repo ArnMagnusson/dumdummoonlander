@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ju5m2mwrs62q"
 path.s3tc="res://.godot/imported/rock_boulder_dry_rough_4k.png-8f23eb13d0b49f2f6c8749c19449df61.s3tc.ctex"
+path.etc2="res://.godot/imported/rock_boulder_dry_rough_4k.png-8f23eb13d0b49f2f6c8749c19449df61.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/terrain3d textures/rock_boulder_dry_rough_4k.png"
-dest_files=["res://.godot/imported/rock_boulder_dry_rough_4k.png-8f23eb13d0b49f2f6c8749c19449df61.s3tc.ctex"]
+dest_files=["res://.godot/imported/rock_boulder_dry_rough_4k.png-8f23eb13d0b49f2f6c8749c19449df61.s3tc.ctex", "res://.godot/imported/rock_boulder_dry_rough_4k.png-8f23eb13d0b49f2f6c8749c19449df61.etc2.ctex"]
 
 [params]
 

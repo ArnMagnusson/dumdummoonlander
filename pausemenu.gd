@@ -20,9 +20,11 @@ func _on_continuebutton_pressed() -> void:
 	get_tree().paused = false
 
 func _on_restartbutton_pressed() -> void:
+	get_tree().paused = false
 	get_tree().reload_current_scene()
-
+	
 func _on_backtostartbutton_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://introscene.tscn")
 
 func _on_quitbutton_pressed() -> void:

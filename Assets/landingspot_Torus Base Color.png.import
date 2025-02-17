@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ds4alt7hrhg1c"
 path.s3tc="res://.godot/imported/landingspot_Torus Base Color.png-a55266eeddbc974e8b1ef0cf478350f3.s3tc.ctex"
+path.etc2="res://.godot/imported/landingspot_Torus Base Color.png-a55266eeddbc974e8b1ef0cf478350f3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/landingspot_Torus Base Color.png"
-dest_files=["res://.godot/imported/landingspot_Torus Base Color.png-a55266eeddbc974e8b1ef0cf478350f3.s3tc.ctex"]
+dest_files=["res://.godot/imported/landingspot_Torus Base Color.png-a55266eeddbc974e8b1ef0cf478350f3.s3tc.ctex", "res://.godot/imported/landingspot_Torus Base Color.png-a55266eeddbc974e8b1ef0cf478350f3.etc2.ctex"]
 
 [params]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://syny76xo58nj"]
+[gd_scene load_steps=7 format=3 uid="uid://syny76xo58nj"]
 
 [ext_resource type="Texture2D" uid="uid://de1otpw3s3v6g" path="res://Assets/RocketShip ASSETS/Moon ground.png" id="1_jkijr"]
-[ext_resource type="PackedScene" uid="uid://c2fqp8j5srrd2" path="res://Scenes/player_canister.tscn" id="2_gocjr"]
+[ext_resource type="PackedScene" uid="uid://jnfbbib743ga" path="res://Scenes/landingspot.tscn" id="2_x5orn"]
+[ext_resource type="PackedScene" uid="uid://domhm87hbhbg1" path="res://demo/components/Player.tscn" id="3_hx1qy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yn3ru"]
 albedo_texture = ExtResource("1_jkijr")
@@ -27,6 +28,8 @@ metadata/_edit_group_ = true
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_dkovc")
 
-[node name="RigidBody3D" parent="." instance=ExtResource("2_gocjr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.2879, 92.6593, 165.732)
-mass = 1.0
+[node name="Node3D" parent="." instance=ExtResource("2_x5orn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00896204, 0.998212, 0.00790024)
+
+[node name="Player" parent="." instance=ExtResource("3_hx1qy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75619, 0.738346, -1.74766)

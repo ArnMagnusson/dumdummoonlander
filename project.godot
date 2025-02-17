@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="dumdummoonlander"
-run/main_scene="res://Scenes/Testworld.tscn"
+run/main_scene="res://Scenes/the moon.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -75,3 +75,7 @@ debugkey={
 [physics]
 
 3d/default_gravity=1.62
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
