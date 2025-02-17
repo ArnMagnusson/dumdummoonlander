@@ -139,3 +139,5 @@ func update_camera(delta):
 		
 	twist_input = 0.0
 	pitch_input = 0.0
+
+	
