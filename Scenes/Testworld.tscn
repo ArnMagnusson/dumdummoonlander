@@ -30,4 +30,3 @@ shape = SubResource("ConcavePolygonShape3D_dkovc")
 [node name="RigidBody3D" parent="." instance=ExtResource("2_gocjr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.2879, 92.6593, 165.732)
 mass = 1.0
-thrust = 90

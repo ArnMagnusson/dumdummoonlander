@@ -15,7 +15,10 @@ func _process(delta):
 	#rotation lock
 	parent_rotation = get_parent().rotation
 	set_rotation(- parent_rotation)
-
+	
+	if Input.is_action_just_pressed("debugkey"):
+		print("Distance to ground: ", distance) #debug script
+		
 #ground detection script sends info to process
 func _ground_detection():
 	if ground_detection.is_colliding(): #if ground_detection run script.
