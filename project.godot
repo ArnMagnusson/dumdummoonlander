@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="dumdummoonlander"
-run/main_scene="res://Scenes/the moon.tscn"
+run/main_scene="res://introscene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -88,4 +88,6 @@ RotationLEFT={
 
 [rendering]
 
+renderer/rendering_method.mobile="forward_plus"
+renderer/rendering_method.web="forward_plus"
 textures/vram_compression/import_etc2_astc=true
