@@ -32,6 +32,8 @@ var q_is_pressed = false
 @export var fuel = 100
 @export var fuel_consuption = 10
 
+var has_crashed = false
+
 func _ready():
 #disable mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -113,6 +115,9 @@ func FUEL_TANK(delta):
 		fuel -= fuel_consuption * delta
 	if fuel <=0:
 		thrust = 0
+
+func explode():
+	pass
 		
 #mouse inputs
 func _input(event):
