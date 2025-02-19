@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://lgvpebaeuswc"]
+
+[ext_resource type="Script" path="res://velocityxdisplay.gd" id="1_rko80"]
+[ext_resource type="FontFile" uid="uid://nlynj410s25x" path="res://Assets/fonts/m6x11.ttf" id="2_jshmy"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="velocityxdisplay" type="CanvasLayer" parent="."]
+script = ExtResource("1_rko80")
+
+[node name="ColorRect" type="ColorRect" parent="velocityxdisplay"]
+offset_right = 100.0
+offset_bottom = 50.0
+color = Color(0.505882, 0.505882, 0.505882, 1)
+
+[node name="infoborder" type="ReferenceRect" parent="velocityxdisplay"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = -322.0
+offset_right = -474.0
+offset_bottom = -272.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.176531, 0.170843, 0.176404, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="velocityx" type="Label" parent="velocityxdisplay"]
+offset_left = 6.0
+offset_top = 20.0
+offset_right = 67.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jshmy")
+text = "Velocity X"
+
+[node name="xvelocitylabel" type="Label" parent="velocityxdisplay"]
+offset_left = 68.0
+offset_top = 19.0
+offset_right = 97.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jshmy")

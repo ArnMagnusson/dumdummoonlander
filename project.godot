@@ -84,7 +84,7 @@ RotationLEFT={
 
 [physics]
 
-3d/default_gravity=1.62
+3d/default_gravity=5.0
 
 [rendering]
 
