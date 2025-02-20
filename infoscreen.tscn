@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bofgwf1rpmvgv"]
+[gd_scene load_steps=4 format=3 uid="uid://dqy6et1efyxmb"]
 
 [ext_resource type="Texture2D" uid="uid://dc3ern5a2vgbv" path="res://Assets/sky texture/starry sky.jpg" id="1_dravx"]
 [ext_resource type="Script" path="res://infodisplay.gd" id="2_4dxml"]

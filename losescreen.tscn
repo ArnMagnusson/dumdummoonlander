@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://ylet6lq7srns"]
+
+[ext_resource type="Texture2D" uid="uid://dc3ern5a2vgbv" path="res://Assets/sky texture/starry sky.jpg" id="1_hbstb"]
+[ext_resource type="Script" path="res://losescreen.gd" id="1_uge2u"]
+[ext_resource type="FontFile" uid="uid://nlynj410s25x" path="res://Assets/fonts/m6x11.ttf" id="2_eke4j"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_uge2u")
+
+[node name="stars" type="CanvasLayer" parent="."]
+
+[node name="the stars" type="TextureRect" parent="stars"]
+offset_right = 3000.0
+offset_bottom = 2000.0
+texture = ExtResource("1_hbstb")
+
+[node name="loseDisplay" type="CanvasLayer" parent="stars"]
+
+[node name="losebox" type="ColorRect" parent="stars/loseDisplay"]
+modulate = Color(0.834614, 0.834614, 0.834614, 1)
+self_modulate = Color(0.821789, 0.821789, 0.821789, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.505344, 0.505344, 0.505344, 1)
+
+[node name="loseborder" type="ReferenceRect" parent="stars/loseDisplay"]
+custom_minimum_size = Vector2(500, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.176531, 0.170843, 0.176404, 1)
+border_width = 10.0
+editor_only = false
+
+[node name="too bad" type="Label" parent="stars/loseDisplay"]
+offset_left = 508.0
+offset_top = 255.0
+offset_right = 644.0
+offset_bottom = 310.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_eke4j")
+theme_override_font_sizes/font_size = 40
+text = "Too bad"
+
+[node name="you crashed" type="Label" parent="stars/loseDisplay"]
+offset_left = 428.0
+offset_top = 311.0
+offset_right = 986.0
+offset_bottom = 366.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_eke4j")
+theme_override_font_sizes/font_size = 25
+text = "You crashed the space shuttle"
+
+[node name="backtostartbuttonlose" type="Button" parent="stars/loseDisplay"]
+offset_left = 431.0
+offset_top = 435.0
+offset_right = 731.0
+offset_bottom = 485.0
+theme_override_fonts/font = ExtResource("2_eke4j")
+text = "Back to Start"
+
+[connection signal="pressed" from="stars/loseDisplay/backtostartbuttonlose" to="." method="_on_backtostartbuttonlose_pressed"]

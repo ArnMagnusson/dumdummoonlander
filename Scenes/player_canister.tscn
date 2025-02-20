@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c2fqp8j5srrd2"]
 
 [ext_resource type="Script" path="res://Scripts/Rigidbody3dscript.gd" id="1_vmkwt"]
-[ext_resource type="PackedScene" uid="uid://i8js2fx5vutk" path="res://true_ship.tscn" id="2_vkp3h"]
+[ext_resource type="PackedScene" path="res://true_ship.tscn" id="2_vkp3h"]
 [ext_resource type="Script" path="res://Scenes/ground_detection_ray.gd" id="3_byibq"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_2sfon"]

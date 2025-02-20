@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://lgvpebaeuswc"]
 
-[ext_resource type="Script" path="res://velocityxdisplay.gd" id="1_rko80"]
+[ext_resource type="Script" path="res://hud.gd" id="1_tpp1u"]
 [ext_resource type="FontFile" uid="uid://nlynj410s25x" path="res://Assets/fonts/m6x11.ttf" id="2_jshmy"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_tpp1u")
 
 [node name="velocityxdisplay" type="CanvasLayer" parent="."]
-script = ExtResource("1_rko80")
 
 [node name="ColorRect" type="ColorRect" parent="velocityxdisplay"]
-offset_right = 100.0
+offset_right = 150.0
 offset_bottom = 50.0
 color = Color(0.505882, 0.505882, 0.505882, 1)
 
@@ -22,7 +22,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -574.0
 offset_top = -322.0
-offset_right = -474.0
+offset_right = -424.0
 offset_bottom = -272.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -37,12 +37,265 @@ offset_right = 67.0
 offset_bottom = 34.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_jshmy")
-text = "Velocity X"
+text = "Velocity X:"
 
 [node name="xvelocitylabel" type="Label" parent="velocityxdisplay"]
-offset_left = 68.0
+offset_left = 74.0
 offset_top = 19.0
-offset_right = 97.0
+offset_right = 140.0
 offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jshmy")
+text = "0"
+
+[node name="velocityydisplay" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="velocityydisplay"]
+offset_left = 2.0
+offset_top = 54.0
+offset_right = 152.0
+offset_bottom = 104.0
+color = Color(0.505882, 0.505882, 0.505882, 1)
+
+[node name="infoborder" type="ReferenceRect" parent="velocityydisplay"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = -271.0
+offset_right = -424.0
+offset_bottom = -221.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.176531, 0.170843, 0.176404, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="velocityy" type="Label" parent="velocityydisplay"]
+offset_left = 6.0
+offset_top = 70.0
+offset_right = 70.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jshmy")
+text = "Velocity Y:"
+
+[node name="yvelocitylabel" type="Label" parent="velocityydisplay"]
+offset_left = 74.0
+offset_top = 69.0
+offset_right = 140.0
+offset_bottom = 83.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jshmy")
+text = "0"
+
+[node name="velocityzdisplay" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="velocityzdisplay"]
+offset_left = 2.0
+offset_top = 103.0
+offset_right = 152.0
+offset_bottom = 153.0
+color = Color(0.505882, 0.505882, 0.505882, 1)
+
+[node name="infoborder" type="ReferenceRect" parent="velocityzdisplay"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = -220.0
+offset_right = -424.0
+offset_bottom = -170.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.176531, 0.170843, 0.176404, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="velocityz" type="Label" parent="velocityzdisplay"]
+offset_left = 6.0
+offset_top = 122.0
+offset_right = 70.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jshmy")
+text = "Velocity Z:"
+
+[node name="zvelocitylabel" type="Label" parent="velocityzdisplay"]
+offset_left = 72.0
+offset_top = 121.0
+offset_right = 138.0
+offset_bottom = 135.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jshmy")
+text = "0"
+
+[node name="fueldisplay" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="fueldisplay"]
+offset_left = 2.0
+offset_top = 154.0
+offset_right = 152.0
+offset_bottom = 204.0
+color = Color(0.505882, 0.505882, 0.505882, 1)
+
+[node name="infoborder" type="ReferenceRect" parent="fueldisplay"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = -169.0
+offset_right = -424.0
+offset_bottom = -119.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.176531, 0.170843, 0.176404, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="fuel" type="Label" parent="fueldisplay"]
+offset_left = 6.0
+offset_top = 174.0
+offset_right = 70.0
+offset_bottom = 188.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jshmy")
+text = "Fuel:"
+
+[node name="fuellabel" type="Label" parent="fueldisplay"]
+offset_left = 37.0
+offset_top = 174.0
+offset_right = 103.0
+offset_bottom = 188.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jshmy")
+
+[node name="throttlegeardisplay" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="throttlegeardisplay"]
+offset_left = 2.0
+offset_top = 206.0
+offset_right = 152.0
+offset_bottom = 256.0
+color = Color(0.505882, 0.505882, 0.505882, 1)
+
+[node name="infoborder" type="ReferenceRect" parent="throttlegeardisplay"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = -118.0
+offset_right = -424.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.176531, 0.170843, 0.176404, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="thrustgear" type="Label" parent="throttlegeardisplay"]
+offset_left = 7.0
+offset_top = 226.0
+offset_right = 71.0
+offset_bottom = 240.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jshmy")
+text = "Thrust:"
+
+[node name="thrustgearlabel" type="Label" parent="throttlegeardisplay"]
+offset_left = 58.0
+offset_top = 225.0
+offset_right = 105.0
+offset_bottom = 239.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jshmy")
+
+[node name="throttledisplay" type="CanvasLayer" parent="."]
+
+[node name="thrustcolorrect" type="ColorRect" parent="throttledisplay"]
+offset_left = 2.0
+offset_top = 309.0
+offset_right = 152.0
+offset_bottom = 359.0
+color = Color(0.944123, 0, 0.170207, 1)
+
+[node name="infoborder" type="ReferenceRect" parent="throttledisplay"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = -16.0
+offset_right = -424.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.176531, 0.170843, 0.176404, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="thrust" type="Label" parent="throttledisplay"]
+offset_left = 7.0
+offset_top = 326.0
+offset_right = 95.0
+offset_bottom = 340.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jshmy")
+text = "Thrust"
+
+[node name="altitudedisplay" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="altitudedisplay"]
+offset_left = 2.0
+offset_top = 257.0
+offset_right = 152.0
+offset_bottom = 307.0
+color = Color(0.505882, 0.505882, 0.505882, 1)
+
+[node name="infoborder" type="ReferenceRect" parent="altitudedisplay"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.0
+offset_top = -67.0
+offset_right = -424.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.176531, 0.170843, 0.176404, 1)
+border_width = 5.0
+editor_only = false
+
+[node name="altitude" type="Label" parent="altitudedisplay"]
+offset_left = 7.0
+offset_top = 276.0
+offset_right = 71.0
+offset_bottom = 290.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jshmy")
+text = "Altitude:"
+
+[node name="altitudelabel" type="Label" parent="altitudedisplay"]
+offset_left = 63.0
+offset_top = 276.0
+offset_right = 129.0
+offset_bottom = 290.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_jshmy")

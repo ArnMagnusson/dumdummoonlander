@@ -1,8 +1,11 @@
 extends Node2D
 
+var linear_velocity
+
 @onready var xvelocitylabel: Label = $velocityxdisplay/xvelocitylabel
-@onready var rigid_body_3d: RigidBody3D = $"../RigidBody3D"
-
-
-
-xvelocitylabel.text = get_linear_velocity.x(rigid_body_3d)
+@onready var yvelocitylabel: Label = $velocityydisplay/yvelocitylabel
+@onready var zvelocitylabel: Label = $velocityzdisplay/zvelocitylabel
+@onready var fuellabel: Label = $fueldisplay/fuellabel
+@onready var thrustgearlabel: Label = $throttlegeardisplay/thrustgearlabel
+@onready var altitudelabel: Label = $altitudedisplay/altitudelabel
+@onready var thrustcolorrect: ColorRect = $throttledisplay/thrustcolorrect
