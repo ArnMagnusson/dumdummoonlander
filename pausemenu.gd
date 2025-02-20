@@ -1,11 +1,11 @@
 extends Control
 @onready var pausemenu: CanvasLayer = $pausemenu
-
-@onready var rigid_body_3d: RigidBody3D = $RigidBody3D
+@onready var rigid_body_3d: RigidBody3D = $Lander
 
 
 var pause
 
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("esc"):
 		pausemenu.visible = true

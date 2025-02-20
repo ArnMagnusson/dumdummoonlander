@@ -4,6 +4,7 @@ extends Node3D
 @onready var hud: Node2D = $HUD
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	update_hud()
 

@@ -11,4 +11,5 @@ func _process(delta):
 	
 	
 func crashed_oh_no():
-		get_tree().change_scene_to_file("res://endscreen.tscn")
+	get_tree().change_scene_to_file("res://losescreen.tscn")
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
